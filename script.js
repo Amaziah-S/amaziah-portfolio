@@ -26,3 +26,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
+function sendMessage() {
+  const name = document.getElementById("contact-name").value.trim();
+  const email = document.getElementById("contact-email").value.trim();
+  const message = document.getElementById("contact-message").value.trim();
+
+  if (!name || !email || !message) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  const subject = encodeURIComponent("Portfolio Contact from " + name);
+  const body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message);
+  window.location.href = "mailto:amaziahs100@gmail.com?subject=" + subject + "&body=" + body;
+}
